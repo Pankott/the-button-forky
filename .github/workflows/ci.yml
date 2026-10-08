@@ -116,12 +116,12 @@ jobs:
           echo "Starting deployment to development environment..."
           sleep 5
           echo "Deployment to development environment completed!"
-    release:
-    runs-on: ubuntu-latest
-    needs: deploy-to-dev
-    outputs: 
-      tag: ${{ steps.versioning.outputs.new_tag }}
-    steps:
+  release:
+      runs-on: ubuntu-latest
+      needs: deploy-to-dev
+      outputs: 
+        tag: ${{ steps.versioning.outputs.new_tag }}
+      steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
